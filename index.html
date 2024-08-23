@@ -25,18 +25,47 @@
     #v2d { display: block; }
 }
 
+:root {
+    --hb2: #8e9fff;
+    --hb: gray;
+}
+
+:root:has(input[name="theme"]:not(:checked)) {
+    --bg: white;
+    --bg2: #e0e0e0;
+    --text: #101010;
+    --h1: #e0e0e0;
+    --h2: white;
+}
+
+:root:has(input[name="theme"]:checked) {
+    --bg: #181818;
+    --bg2: #404040;
+    --text: #efefef;
+    --h1: #262626;
+    --h2: #161616;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.2s, color: 0.2s;
+}
+
 .card {
     width: 20em;
     border-radius: 0.5em;
-    background: #eeeeee;
+    background: var(--bg2);
     padding: 0.5em;
     margin: 1em;
+    transition: background 0.2s;
 }
 
 .opts {
     display: flex;
     gap: 0.2em;
     flex-direction: row;
+    justify-content: end;
     margin-bottom: 0.5em;
 }
 
@@ -44,10 +73,59 @@
     display: none;
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    align-items: center;
+    padding: 1em;
+}
+
+.colorscheme-cont {
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+}
+
+.switch {
+    background: var(--h1);
+    display: inline-block;
+    width: 1.8em;
+    border-radius: 0.5em;
+    outline: 0.12em solid var(--hb);
+    transition: background 0.2s, outline-color 0.2s;
+}
+
+.switch:hover {
+    outline-color: var(--hb2);
+}
+
+.switch > * {
+    background: var(--h2);
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    transform: translateX(0);
+    transition: background 0.2s, transform 0.2s;
+}
+
+label:has(> input:checked) > .switch > * {
+    transform: translateX(0.8em);
+}
+
 </style>
     </head>
     <body>
         <form id="test">
+            <div class="header">
+                <span>No JavaScript</span>
+                <label class="opt colorscheme-cont">
+                    <input type="checkbox" name="theme">
+                    Colorscheme:
+                    <span class="switch"><span></span></span>
+                </label>
+            </div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur finibus tincidunt. Vivamus non turpis id nibh aliquam fermentum vel vel justo. Praesent at odio augue. Pellentesque interdum orci quam, id mattis nisl imperdiet ut. Nunc at tincidunt erat, a varius tortor. Vivamus a gravida libero. Praesent erat magna, tempor vel sollicitudin vel, finibus sed mauris. Nullam vehicula enim sit amet consectetur semper. Donec ac ligula sed sem fermentum rhoncus eu vel libero. Donec at posuere odio, elementum egestas ipsum. Aliquam erat volutpat. Morbi vitae enim a nulla sollicitudin iaculis id molestie diam. Mauris pulvinar diam varius sapien viverra, euismod lobortis nunc lobortis. Sed bibendum consequat dui, at vulputate felis viverra id. Aenean nec mauris justo. Pellentesque tincidunt diam vitae pellentesque luctus.
             <div class="card">
                 <div class="opts">
