@@ -1,0 +1,98 @@
+<html>
+    <head>
+<style>
+label:has(input[name="style"][value="1"]) {
+    color: var(--v1c);
+}
+label:has(input[name="style"][value="2"]) {
+    color: var(--v2c);
+}
+
+body:has(input[name="style"][value="1"]:checked) {
+    --v1s: block;
+    --v2s: none;
+    --v1c: #ff0000;
+    --v2c: #00ff0080;
+}
+body:has(input[name="style"][value="2"]:checked) {
+    --v1s: none;
+    --v2s: block;
+    --v1c: #ff000080;
+    --v2c: #00ff00;
+}
+
+#v1d {
+    display: var(--v1s);
+    color: var(--v1c);
+}
+
+#v2d {
+    display: var(--v2s);
+    color: var(--v2c);
+}
+
+.card {
+    width: 20em;
+    border-radius: 0.5em;
+    background: #eeeeee;
+    padding: 0.5em;
+    margin: 1em;
+}
+
+.opts {
+    display: flex;
+    gap: 0.2em;
+    flex-direction: row;
+    margin-bottom: 0.5em;
+}
+
+.opt > input {
+    display: none;
+}
+
+</style>
+    </head>
+    <body>
+        <form id="test">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur finibus tincidunt. Vivamus non turpis id nibh aliquam fermentum vel vel justo. Praesent at odio augue. Pellentesque interdum orci quam, id mattis nisl imperdiet ut. Nunc at tincidunt erat, a varius tortor. Vivamus a gravida libero. Praesent erat magna, tempor vel sollicitudin vel, finibus sed mauris. Nullam vehicula enim sit amet consectetur semper. Donec ac ligula sed sem fermentum rhoncus eu vel libero. Donec at posuere odio, elementum egestas ipsum. Aliquam erat volutpat. Morbi vitae enim a nulla sollicitudin iaculis id molestie diam. Mauris pulvinar diam varius sapien viverra, euismod lobortis nunc lobortis. Sed bibendum consequat dui, at vulputate felis viverra id. Aenean nec mauris justo. Pellentesque tincidunt diam vitae pellentesque luctus.
+            <div class="card">
+                <div class="opts">
+                    <label class="opt">
+                        <input type="radio" name="style" value="1" checked>
+                        Style 1
+                    </label>
+                    <label class="opt">
+                        <input type="radio" name="style" value="2">
+                        Style 2
+                    </label>
+                </div>
+                <div id="v1d">
+                    Property 1 is chosen
+                    <input type="text"></input>
+                </div>
+                <div id="v2d">
+                    Property 2 is chosen
+                </div>
+            </div>
+            Suspendisse ultricies eget justo vulputate suscipit. Nam bibendum nisl vehicula tellus lobortis suscipit. Cras vel aliquet mauris. Sed sapien tortor, accumsan eu sapien nec, maximus finibus magna. Mauris non neque ac nibh auctor porta eu sit amet tellus. Suspendisse at arcu iaculis, pellentesque magna ac, consectetur neque. Nunc mollis nulla facilisis sapien vestibulum, sed faucibus ex tincidunt. Mauris elit odio, pulvinar volutpat accumsan et, finibus interdum metus. Proin aliquet eget tellus sit amet ultricies. Fusce velit mauris, cursus a augue quis, aliquam tempor libero. Suspendisse tincidunt risus vitae nunc ullamcorper cursus.
+            <div class="card">
+                <div class="opts">
+                    <label class="opt">
+                        <input type="radio" name="style" value="1">
+                        Style 1
+                    </label>
+                    <label class="opt">
+                        <input type="radio" name="style" value="2">
+                        Style 2
+                    </label>
+                </div>
+                <div id="v1d">
+                    Text for variant 1
+                </div>
+                <div id="v2d">
+                    Text for variant 2
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
