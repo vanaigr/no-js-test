@@ -1,34 +1,28 @@
 <html>
     <head>
 <style>
-label:has(input[name="style"][value="1"]) {
-    color: var(--v1c);
-}
-label:has(input[name="style"][value="2"]) {
-    color: var(--v2c);
-}
-
-body:has(input[name="style"][value="1"]:checked) {
-    --v1s: block;
-    --v2s: none;
-    --v1c: #ff0000;
-    --v2c: #00ff0080;
-}
-body:has(input[name="style"][value="2"]:checked) {
-    --v1s: none;
-    --v2s: block;
-    --v1c: #ff000080;
-    --v2c: #00ff00;
-}
 
 #v1d {
-    display: var(--v1s);
-    color: var(--v1c);
+    color: #ff0000;
 }
 
 #v2d {
-    display: var(--v2s);
-    color: var(--v2c);
+    color: #00ff00;
+}
+
+:root:has(input[name="style"][value="1"]:checked) {
+    label:has(input[name="style"][value="1"]) { color: #ff0000; font-weight: bold; }
+    label:has(input[name="style"][value="2"]) { color: #00ff0080; }
+
+    #v1d { display: block; }
+    #v2d { display: none; }
+}
+:root:has(input[name="style"][value="2"]:checked) {
+    label:has(input[name="style"][value="1"]) { color: #ff000080; }
+    label:has(input[name="style"][value="2"]) { color: #00ff00; font-weight: bold; }
+
+    #v1d { display: none; }
+    #v2d { display: block; }
 }
 
 .card {
